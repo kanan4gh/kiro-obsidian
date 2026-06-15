@@ -28,6 +28,9 @@
 | `skill-wiki.md` | manual | Vault scaffold 手順 |
 | `skill-wiki-query.md` | manual | クエリ手順 |
 | `skill-wiki-lint.md` | manual | lint 手順 |
+| `skill-wiki-mode.md` | manual | Vault 整理方法論の選択・設定（LYT / PARA / Zettelkasten / Generic） |
+| `skill-save.md` | manual | 会話の洞察を wiki ページとして保存 |
+| `skill-autoresearch.md` | manual | Web 検索・ソース取得・wiki 登録の自律リサーチループ |
 
 `inclusion: always` のファイルはセッション開始時に自動的に Kiro のコンテキストに注入されます。
 `inclusion: manual` のファイルは `#skill-name` でチャット内から参照したときのみ注入されます。
@@ -178,6 +181,9 @@ python3 tests/test_wiki_mode.py
 | lint | ✅ P0 |
 | Hot Cache | ✅ P0 |
 | auto-commit | ✅ P0 |
-| Methodology Mode | 🔜 P1 |
-| autoresearch | 🔜 P1 |
+| Methodology Mode | ✅ P1 |
+| save | ✅ P1 |
+| autoresearch | ✅ P1 |
 | ハイブリッド検索 | 🔜 P2 |
+| think フレームワーク | 🔜 P2 |
+| DragonScale Memory | 🔜 P2 |

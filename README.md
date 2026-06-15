@@ -13,6 +13,9 @@
 | **ingest** | `.raw/` にソースを入れて「ingest して」と言う → wiki ページが 8〜15 自動生成 |
 | **query** | 「[トピック] について教えて」→ wiki から引用付きで回答 |
 | **lint** | 「wiki を lint して」→ 孤立ページ・デッドリンク・矛盾を検出 |
+| **autoresearch** | 「[トピック] をリサーチして」→ Web 検索・ソース取得・wiki 登録を自動実行 |
+| **save** | 「保存して」→ 会話の洞察を wiki ページとして永続化 |
+| **wiki-mode** | `#skill-wiki-mode` → Vault の整理方法論を選択（LYT / PARA / Zettelkasten / Generic） |
 
 ---
 
@@ -119,6 +122,9 @@ Kiro では `/skill-name` の代わりに `#skill-name` でスキルを参照し
 | ingest（自動） | 「[ファイル名] を ingest してください」（常時ロード済み） |
 | query | 「`#skill-wiki-query` を参照して [質問] を教えてください」 |
 | lint | 「`#skill-wiki-lint` を参照して wiki を lint してください」 |
+| autoresearch | 「`#skill-autoresearch` を参照して [トピック] をリサーチしてください」 |
+| save | 「`#skill-save` を参照してこの会話を保存してください」 |
+| wiki-mode 設定 | 「`#skill-wiki-mode` を参照して Vault のモードを設定してください」 |
 
 ---
 
