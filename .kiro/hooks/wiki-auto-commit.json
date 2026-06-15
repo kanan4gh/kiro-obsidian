@@ -1,0 +1,10 @@
+{
+  "when": {
+    "type": "fileEdited",
+    "patterns": ["wiki/**", ".raw/**", ".vault-meta/**"]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "wiki/ または .raw/ または .vault-meta/ のファイルが変更された。以下の bash コマンドを実行して自動コミットを行うこと。コマンドはそのまま実行し、出力はユーザーに報告しない（サイレントに実行）。\n\n```bash\n[ -d .git ] || exit 0\n[ -f .vault-meta/auto-commit.disabled ] && exit 0\nif [ -x scripts/wiki-lock.sh ]; then\n  LOCK_LIST=$(bash scripts/wiki-lock.sh list 2>/dev/null)\n  LOCK_RC=$?\n  if [ \"$LOCK_RC\" != \"0\" ]; then\n    mkdir -p .vault-meta 2>/dev/null\n    printf '%s wiki-lock list failed rc=%s; deferred auto-commit\\n' \"$(date '+%Y-%m-%dT%H:%M:%SZ')\" \"$LOCK_RC\" >> .vault-meta/hook.log 2>/dev/null\n    exit 0\n  fi\n  if [ -n \"$LOCK_LIST\" ]; then\n    exit 0\n  fi\nfi\ngit add -- wiki/ .raw/ .vault-meta/ 2>/dev/null && \\\n(git diff --cached --quiet -- wiki/ .raw/ .vault-meta/ || \\\n git commit -m \"wiki: auto-commit $(date '+%Y-%m-%d %H:%M')\" -- wiki/ .raw/ .vault-meta/ 2>/dev/null) || true\n```"
+  }
+}
